@@ -27,7 +27,7 @@
 
 
 
-
+#define DEVICE_PWMOUT
 
 
 
