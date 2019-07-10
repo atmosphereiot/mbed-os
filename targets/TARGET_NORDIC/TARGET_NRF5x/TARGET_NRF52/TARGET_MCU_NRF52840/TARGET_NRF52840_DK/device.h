@@ -18,21 +18,6 @@
 #ifndef MBED_DEVICE_H
 #define MBED_DEVICE_H
 
-
-
-
-
-
-
-
-
-
-#define DEVICE_PWMOUT
-
-
-
-
-
 #include "objects.h"
 
 #endif
