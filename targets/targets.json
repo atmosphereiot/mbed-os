@@ -8569,6 +8569,7 @@
     "CY8CPROTO_062_4343W": {
         "inherits": ["CY8CMOD_062_4343W"],
         "detect_code": ["1901"],
+        "components_add": ["QSPIF"],
         "post_binary_hook": {
             "function": "PSOC6Code.complete"
         },
