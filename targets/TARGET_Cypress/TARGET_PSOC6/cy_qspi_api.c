@@ -91,7 +91,7 @@ static void cyhal_qspi_convert_command(const qspi_command_t *from, cyhal_qspi_co
     to->instruction.disabled = from->instruction.disabled;
     to->address.bus_width = cyhal_qspi_convert_width(from->address.bus_width);
     to->address.size = cyhal_qspi_convert_addr_size(from->address.size);
-    to->address.disabled = from->address.data;
+    to->address.disabled = from->address.disabled;
     to->alt.bus_width = cyhal_qspi_convert_width(from->alt.bus_width);
     to->alt.size = cyhal_qspi_convert_alt_size(from->alt.size);
     to->alt.value = from->alt.value;
