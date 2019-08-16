@@ -45,12 +45,12 @@ static inline cyhal_qspi_bus_width_t cyhal_qspi_convert_width(qspi_bus_width_t w
 {
     switch (width) {
         case QSPI_CFG_BUS_SINGLE:
-            return CY_QSPI_CFG_BUS_SINGLE;
+            return CYHAL_QSPI_CFG_BUS_SINGLE;
         case QSPI_CFG_BUS_DUAL:
-            return CY_QSPI_CFG_BUS_DUAL;
+            return CYHAL_QSPI_CFG_BUS_DUAL;
         default: // fallthrough
         case QSPI_CFG_BUS_QUAD:
-            return CY_QSPI_CFG_BUS_QUAD;
+            return CYHAL_QSPI_CFG_BUS_QUAD;
     }
 }
 
@@ -58,14 +58,14 @@ static inline cyhal_qspi_size_t cyhal_qspi_convert_addr_size(qspi_address_size_t
 {
     switch (size) {
         case QSPI_CFG_ADDR_SIZE_8:
-            return CY_QSPI_CFG_SIZE_8;
+            return CYHAL_QSPI_CFG_SIZE_8;
         case QSPI_CFG_ADDR_SIZE_16:
-            return CY_QSPI_CFG_SIZE_16;
+            return CYHAL_QSPI_CFG_SIZE_16;
         case QSPI_CFG_ADDR_SIZE_24:
-            return CY_QSPI_CFG_SIZE_24;
+            return CYHAL_QSPI_CFG_SIZE_24;
         default: // fallthrough
         case QSPI_CFG_ADDR_SIZE_32:
-            return CY_QSPI_CFG_SIZE_32;
+            return CYHAL_QSPI_CFG_SIZE_32;
     }
 }
 
@@ -73,14 +73,14 @@ static inline cyhal_qspi_size_t cyhal_qspi_convert_alt_size(qspi_alt_size_t size
 {
     switch (size) {
         case QSPI_CFG_ALT_SIZE_8:
-            return CY_QSPI_CFG_SIZE_8;
+            return CYHAL_QSPI_CFG_SIZE_8;
         case QSPI_CFG_ALT_SIZE_16:
-            return CY_QSPI_CFG_SIZE_16;
+            return CYHAL_QSPI_CFG_SIZE_16;
         case QSPI_CFG_ALT_SIZE_24:
-            return CY_QSPI_CFG_SIZE_24;
+            return CYHAL_QSPI_CFG_SIZE_24;
         default: // fallthrough
         case QSPI_CFG_ALT_SIZE_32:
-            return CY_QSPI_CFG_SIZE_32;
+            return CYHAL_QSPI_CFG_SIZE_32;
     }
 }
 
