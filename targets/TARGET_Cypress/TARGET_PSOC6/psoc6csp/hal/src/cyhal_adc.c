@@ -357,8 +357,17 @@ uint16_t cyhal_adc_read_u16(const cyhal_adc_channel_t *obj)
     // the value up because the SAR returns a 12-bit value (we don't configure averaging
     // or summing) but our result is defined to fill the full 16-bit range.
     uint16_t result = (uint16_t)Cy_SAR_GetResult16(obj->adc->base, obj->channel_idx);
-    printf("Raw ADC Result:%04X\r\n", result);
-    uint16_t scaled_result = (result << 4) | (result >> 8);
+
+    // GND can sometimes wrap around to 0xFFFF
+    if(result == 0xFFFF)
+    {
+        result = 0;
+    }
+
+    // The result is actually 11 bits, scale up to 12
+    result <<= 1;
+    uint16_t scaled_result = ((result << 4) & (uint16_t)0xFFF0) | ((result >> 8) & (uint16_t)0x000F);
+    printf("Raw ADC Result:%04X Scaled: %04X\r\n", result), scaled_result;
     return scaled_result;
 }
 
