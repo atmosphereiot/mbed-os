@@ -366,8 +366,9 @@ uint16_t cyhal_adc_read_u16(const cyhal_adc_channel_t *obj)
 
     // The result is actually 11 bits, scale up to 12
     result <<= 1;
+
+    // Scale result up to 16 bits
     uint16_t scaled_result = ((result << 4) & (uint16_t)0xFFF0) | ((result >> 8) & (uint16_t)0x000F);
-        printf("Raw ADC Result:%04X Scaled: %04X\r\n", result, scaled_result);
     return scaled_result;
 }
 
