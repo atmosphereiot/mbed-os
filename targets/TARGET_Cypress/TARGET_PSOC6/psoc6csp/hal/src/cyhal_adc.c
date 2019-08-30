@@ -347,7 +347,6 @@ void cyhal_adc_channel_free(cyhal_adc_channel_t *obj)
 
 uint16_t cyhal_adc_read_u16(const cyhal_adc_channel_t *obj)
 {
-    const uint8_t RESULT_SCALING_FACTOR = UINT16_MAX / 0xFFF; // 12-bit SAR resolution
     // Enable the selected channel only, then perform an on-demand conversion
     Cy_SAR_SetChanMask(obj->adc->base, 1U << obj->channel_idx);
     Cy_SAR_StartConvert(obj->adc->base, CY_SAR_START_CONVERT_SINGLE_SHOT);
@@ -358,7 +357,7 @@ uint16_t cyhal_adc_read_u16(const cyhal_adc_channel_t *obj)
     // the value up because the SAR returns a 12-bit value (we don't configure averaging
     // or summing) but our result is defined to fill the full 16-bit range.
     uint16_t result = (uint16_t)Cy_SAR_GetResult16(obj->adc->base, obj->channel_idx);
-    uint16_t scaled_result = result * RESULT_SCALING_FACTOR;
+    uint16_t scaled_result = (result << 4) | (result >> 8);
     return scaled_result;
 }
 

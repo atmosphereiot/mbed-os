@@ -52,7 +52,7 @@ void analogin_init(analogin_t *obj, PinName pin)
 
 float analogin_read(analogin_t *obj)
 {
-    return analogin_read_u16(obj) * (1.0f / (1.0f + CYHAL_ADC_MAX_VALUE));
+    return analogin_read_u16(obj) * (1.0f / UINT16_MAX);
 }
 
 uint16_t analogin_read_u16(analogin_t *obj)
