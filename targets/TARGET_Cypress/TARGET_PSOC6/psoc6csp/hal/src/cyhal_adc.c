@@ -358,8 +358,8 @@ uint16_t cyhal_adc_read_u16(const cyhal_adc_channel_t *obj)
     // or summing) but our result is defined to fill the full 16-bit range.
     uint16_t result = (uint16_t)Cy_SAR_GetResult16(obj->adc->base, obj->channel_idx);
 
-    // GND can sometimes wrap around to 0xFFFF
-    if(result == 0xFFFF)
+    // GND can sometimes wrap around
+    if(result & 0x8000)
     {
         result = 0;
     }
